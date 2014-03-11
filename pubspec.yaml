@@ -1,7 +1,8 @@
-name: stagexl_samples
-author: Bernhard Pichler
-description: Sample applications showing features of the StageXL library.
-homepage: http://www.stagexl.org/
+name: DartPiano
+author: Alex Gann
+description: Configurable virual piano for Dart
+homepage: http://www.dartvn.org/
 dependencies:
   browser: any
-  stagexl: '>=0.9.0 <0.10.0'
+  stagexl:
+    git: git://github.com/realbluesky/StageXL.git

@@ -3,8 +3,8 @@ part of piano;
 class Piano extends DisplayObjectContainer {
 
   final List<String> _pianoNotes = [
-    'C3', 'C3#', 'D3', 'D3#', 'E3', 'F3', 'F3#', 'G3', 'G3#', 'A3', 'A3#', 'B3',
-    'C4', 'C4#', 'D4', 'D4#', 'E4', 'F4', 'F4#', 'G4', 'G4#', 'A4', 'A4#', 'B4', 'C5'];
+    'C3', 'C#3', 'D3', 'D#3', 'E3', 'F3', 'F#3', 'G3', 'G#3', 'A3', 'A#3', 'B3',
+    'C4', 'C#4', 'D4', 'D#4', 'E4', 'F4', 'F#4', 'G4', 'G#4', 'A4', 'A#4', 'B4', 'C5'];
 
   Map<String, PianoKey> _pianoKeys = new Map<String, PianoKey>();
   Bitmap _hintFinger;
@@ -15,8 +15,8 @@ class Piano extends DisplayObjectContainer {
 
       // all piano key to this DisplayObjectContainer
 
-      var sound = resourceManager.getSound('Note${n+1}');
       var pianoNote = _pianoNotes[n];
+      var sound = resourceManager.getSoundSprite('notes').getSegment(pianoNote);
       var pianoKey = new PianoKey(pianoNote, sound);
 
       pianoKey.on(PianoEvent.NOTE_PLAYED).listen((event) {
@@ -25,7 +25,7 @@ class Piano extends DisplayObjectContainer {
 
       _pianoKeys[pianoNote] = pianoKey;
 
-      if (pianoNote.endsWith('#')) {
+      if (pianoNote.contains('#')) {
         pianoKey.x = x - 16;
         pianoKey.y = 35;
         addChild(pianoKey);
@@ -37,11 +37,11 @@ class Piano extends DisplayObjectContainer {
       }
     }
 
-    // add hint finger to this DisplayObjectContainer
-
+    /* // add hint finger to this DisplayObjectContainer
     _hintFinger = new Bitmap(resourceManager.getBitmapData('Finger'));
     _hintFinger.pivotX = 20;
     addChild(_hintFinger);
+    */
   }
 
   //---------------------------------------------------------------------------------

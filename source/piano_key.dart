@@ -3,13 +3,13 @@ part of piano;
 class PianoKey extends Sprite {
 
   final String note;
-  final Sound sound;
+  final dynamic sound;
 
   PianoKey(this.note, this.sound) {
 
     String key;
 
-    if (note.endsWith('#')) {
+    if (note.contains('#')) {
       key = 'KeyBlack';
     } else if (note.startsWith('C5')) {
       key = 'KeyWhite0';
@@ -27,7 +27,7 @@ class PianoKey extends Sprite {
     this.addChild(bitmap);
 
     // add the note name to this Sprite
-    var textColor = note.endsWith('#') ? Color.White : Color.Black;
+    var textColor = note.contains('#') ? Color.White : Color.Black;
     var textFormat = new TextFormat('Helvetica,Arial', 10, textColor, align:TextFormatAlign.CENTER);
 
     var textField = new TextField();
