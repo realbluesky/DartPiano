@@ -5,4 +5,4 @@ homepage: http://www.dartvn.org/
 dependencies:
   browser: any
   stagexl:
-    git: git://github.com/realbluesky/StageXL.git
+    git: git://github.com/bp74/StageXL.git
